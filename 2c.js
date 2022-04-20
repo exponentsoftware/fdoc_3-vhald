@@ -1,3 +1,5 @@
+
+
 const users = [
     {
         _id: 'ab12ex',
@@ -64,7 +66,7 @@ const products = [
     {
         _id: 'hedfcg',
         name: 'TV',
-        description: 'Smart TV:Procaster',
+        description: 'Smart TV: Procaster',
         price: 400,
         ratings: [{ userId: 'fg12cy', rate: 5 }],
         likes: ['fg12cy']
@@ -72,30 +74,21 @@ const products = [
 ];
 
 
-function signUp(name) {
-    for (user in users) {
-        if (user.username == name) {
-            console.log("user already exists");
-        } else {
-            users.push({ username: name });
-            break;
+//For give like to a product.
+
+const likeProduct = (productId, userId) => {
+    for (let i = 0; i < products.length; i++) {
+        if (products[i]._id === productId) {
+            const likes = products[i].likes;
+            const index = products[i].likes.indexOf(userId);
+            if (index !== -1) {
+                products[i].likes.splice(index, 1);
+            } else {
+                products[i].likes.push(userId);
+            }
         }
     }
 };
-signUp("Alex");
-console.log(users);
-
-
-function signIn(name, password) {
-    for (user in users) {
-        if (user.username == name && user.password == password) {
-            console.log("signed In");
-            break;
-        } else {
-            console.log("User doesn't exist");
-            break;
-        }
-    }
-}
-
-signIn('Alex', 12345);
+likeProduct("eedfcf", "ghderc");
+likeProduct("eedfcf", "ab12ex");
+console.log(products);

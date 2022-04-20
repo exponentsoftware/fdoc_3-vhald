@@ -72,30 +72,30 @@ const products = [
 ];
 
 
-function signUp(name) {
-    for (user in users) {
-        if (user.username == name) {
-            console.log("user already exists");
-        } else {
-            users.push({ username: name });
-            break;
-        }
-    }
-};
-signUp("Alex");
-console.log(users);
-
-
-function signIn(name, password) {
-    for (user in users) {
-        if (user.username == name && user.password == password) {
-            console.log("signed In");
-            break;
-        } else {
-            console.log("User doesn't exist");
+function rateProduct(item, rating) {
+    for (product of products) {
+        if (item == product) {
+            product.ratings.push({ rate: rating });
             break;
         }
     }
 }
 
-signIn('Alex', 12345);
+rateProduct('TV', 5);
+console.log(products);
+
+
+
+function averageRating(name) {
+    var sum = 0;
+    for (var i = 0; i < products.length; i++) {
+        if (products[i] == name) {
+            for (var j = 0; j < products[i].ratings.length; j++) {
+                sum = sum + products[i].ratings[j].rate;
+            }
+            console.log(sum);
+        }
+    }
+}
+
+averageRating("TV");

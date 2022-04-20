@@ -31,6 +31,8 @@ const newStudent = {
 };
 console.log(newStudent);
 
+// copy the obj then add things
+
 // ---
 
 // 	Use the student object to solve the following questions:
@@ -63,5 +65,6 @@ const checkGraphicDesignProp = (student, checkKey) => {
 checkGraphicDesignProp(newStudent, "graphicDesign");
 
 //1(e)
-const iterateItem = Object.keys(newStudent).map((item) => console.log(item));
-console.log(iterateItem);
+console.log("dd", newStudent);
+const iterateItem = Object.keys(newStudent).map((item) =>
+    console.log(item));
